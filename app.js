@@ -31,7 +31,7 @@ const App = {
             isFirst: true,
             isLast: false,
             isFinish: false,
-            isNeedHide: false
+            isNeedHide: false,
         }
     },
     methods: {
