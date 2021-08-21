@@ -1,7 +1,3 @@
-// вы можете как угодно изменять программу и код
-// добавлять любые переменные и модели
-// ваша задача реализовать так, как показано на видео, чтобы оно работало
-
 const App = {
     data() {
         return {
@@ -43,8 +39,6 @@ const App = {
             if (this.activeIndex !== this.steps.length - 1) {
                 this.isFinish = false
             }
-            console.log(this.activeIndex)
-            // когда нажимаем кнопку назад
         },
         nextOfFinish() {
             this.activeIndex++
@@ -53,22 +47,16 @@ const App = {
                 this.isLast = true
                 this.isFinish = true
             }
-            console.log(this.activeIndex)
-            // кнопка вперед или закончить
         },
         setActive(idx) {
             this.activeIndex = idx
             this.isFirst = (idx > 0) ? false : true
             this.isFinish = (idx < this.steps.length - 1) ? false : true
-            console.log(this.activeIndex)
-            // когда нажимаем на определенный шаг
         },
         finish() {
-            console.log('нажата клавиша Завершить')
             this.isNeedHide = true
         },
         again() {
-            console.log('нажата клавиша Заново')
             this.activeIndex = 0
             this.isFirst = true
             this.isLast = false
@@ -76,11 +64,5 @@ const App = {
             this.isNeedHide = false
         }
     },
-    computed: {
-        // тут стоит определить несколько свойств:
-        // 1. текущий выбранный шаг
-        // 2. выключена ли кнопка назад
-        // 3. находимся ли мы на последнем шаге
-    }
 }
 Vue.createApp(App).mount('#app')

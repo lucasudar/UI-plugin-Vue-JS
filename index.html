@@ -11,19 +11,17 @@
 <div class="container" id="app">
     <div class="card">
         <h1>План по изучению Vue.js</h1>
-
         <div class="steps">
             <div class="steps-content"
                  :data="activeIndex">
                 {{ steps[activeIndex].text }}
             </div>
             <ul class="steps-list">
-                <li class="steps-item"
-                    @click="setActive(idx)"
-                    v-for="(li, idx) in steps.length"
+                <li v-for="(li, idx) in steps.length"
+                    :class="[{active: idx === activeIndex, done: idx < activeIndex}, 'steps-item']"
                     :data="steps"
                     :key="idx">
-                    <span>{{ li }}</span>
+                    <span @click="setActive(idx)">{{ li }}</span>
                     {{steps[idx].title}}
                 </li>
             </ul>
